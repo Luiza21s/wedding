@@ -1,0 +1,421 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+  --color-gold: var(--gold);
+  --color-gold-light: var(--gold-light);
+  --color-bordeaux: var(--bordeaux);
+  --color-green: var(--green);
+  --font-sans: var(--font-sans);
+  --font-serif: var(--font-serif);
+}
+
+:root {
+  color-scheme: light;
+  --background: #f5ecd6;
+  --foreground: #3a2417;
+  --card: #fbf5e6;
+  --card-foreground: #3a2417;
+  --popover: #fbf5e6;
+  --popover-foreground: #3a2417;
+  --primary: #6e1f28;
+  --primary-foreground: #f6ecd4;
+  --secondary: #efe1c0;
+  --secondary-foreground: #4a2a17;
+  --muted: #ece0c4;
+  --muted-foreground: #7a5c3e;
+  --accent: #b8894a;
+  --accent-foreground: #2a1a0e;
+  --destructive: #6e1f28;
+  --border: #cbae72;
+  --input: #cbae72;
+  --ring: #b8894a;
+  --chart-1: #6e1f28;
+  --chart-2: #b8894a;
+  --chart-3: #4a5638;
+  --chart-4: #d9b779;
+  --chart-5: #7a5c3e;
+  --radius: 0.5rem;
+  --gold: #b8894a;
+  --gold-light: #d9b779;
+  --bordeaux: #6e1f28;
+  --green: #4a5638;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+  color-scheme: dark;
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) {
+    color-scheme: dark;
+    --background: oklch(0.145 0 0);
+    --foreground: oklch(0.985 0 0);
+    --card: oklch(0.205 0 0);
+    --card-foreground: oklch(0.985 0 0);
+    --popover: oklch(0.205 0 0);
+    --popover-foreground: oklch(0.985 0 0);
+    --primary: oklch(0.922 0 0);
+    --primary-foreground: oklch(0.205 0 0);
+    --secondary: oklch(0.269 0 0);
+    --secondary-foreground: oklch(0.985 0 0);
+    --muted: oklch(0.269 0 0);
+    --muted-foreground: oklch(0.708 0 0);
+    --accent: oklch(0.269 0 0);
+    --accent-foreground: oklch(0.985 0 0);
+    --destructive: oklch(0.704 0.191 22.216);
+    --border: oklch(1 0 0 / 10%);
+    --input: oklch(1 0 0 / 15%);
+    --ring: oklch(0.556 0 0);
+    --chart-1: oklch(0.87 0 0);
+    --chart-2: oklch(0.556 0 0);
+    --chart-3: oklch(0.439 0 0);
+    --chart-4: oklch(0.371 0 0);
+    --chart-5: oklch(0.269 0 0);
+    --sidebar: oklch(0.205 0 0);
+    --sidebar-foreground: oklch(0.985 0 0);
+    --sidebar-primary: oklch(0.488 0.243 264.376);
+    --sidebar-primary-foreground: oklch(0.985 0 0);
+    --sidebar-accent: oklch(0.269 0 0);
+    --sidebar-accent-foreground: oklch(0.985 0 0);
+    --sidebar-border: oklch(1 0 0 / 10%);
+    --sidebar-ring: oklch(0.556 0 0);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+.invitation-card {
+  position: relative;
+  width: min(calc(100vw - 12px), 650px);
+  max-width: 100%;
+  aspect-ratio: 778 / 1805;
+  margin: 0 auto;
+  container-type: inline-size;
+  isolation: isolate;
+}
+
+.paper-background {
+  position: absolute;
+  inset: 2.5% 2.2% 2.6% 2.2%;
+  z-index: 1;
+  border-radius: 34% 34% 30% 30% / 33% 33% 28% 28%;
+  background:
+    linear-gradient(180deg, rgba(245, 236, 214, 0.98), rgba(243, 233, 215, 0.95)),
+    radial-gradient(circle at top, rgba(249, 243, 230, 0.95), rgba(243, 233, 215, 0.85) 35%, rgba(243, 233, 215, 0.98) 100%);
+  box-shadow: inset 0 0 0 1px rgba(110, 31, 40, 0.06);
+}
+
+.card-content {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+}
+
+.card-safe-area {
+  position: absolute;
+  inset: 6% 15% 10% 15%;
+  z-index: 2;
+  display: grid;
+  grid-template-rows: 1.25fr 0.9fr 1fr 1.3fr 1fr 0.7fr;
+  align-items: center;
+  text-align: center;
+}
+
+.card-header,
+.card-date,
+.card-venue,
+.card-schedule,
+.card-dress,
+.card-footer {
+  width: 100%;
+}
+
+.card-eyebrow,
+.section-kicker {
+  font-family: var(--font-serif), serif;
+  font-size: clamp(0.52rem, 1.3cqw, 0.82rem);
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  line-height: 1.4;
+  color: rgba(110, 31, 40, 0.82);
+}
+
+.card-title {
+  margin-top: 0.35rem;
+  font-family: var(--font-serif), serif;
+  font-size: clamp(2.3rem, 7.2cqw, 5.2rem);
+  line-height: 0.94;
+  letter-spacing: 0.02em;
+  color: #6e1f28;
+}
+
+.card-title-mark {
+  color: #b8894a;
+}
+
+.card-copy {
+  margin-top: 0.6rem;
+  font-size: clamp(0.7rem, 2cqw, 1.08rem);
+  line-height: 1.5;
+  color: rgba(58, 36, 23, 0.72);
+}
+
+.card-date {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(0.4rem, 1.8cqw, 1rem);
+  font-family: var(--font-serif), serif;
+  color: #6e1f28;
+}
+
+.date-number {
+  font-size: clamp(2.6rem, 9cqw, 6.4rem);
+  line-height: 0.8;
+  letter-spacing: -0.04em;
+}
+
+.date-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-size: clamp(0.88rem, 2.3cqw, 1.75rem);
+  line-height: 1.1;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.card-venue {
+  align-self: start;
+}
+
+.venue-name {
+  margin-top: 0.45rem;
+  font-family: var(--font-serif), serif;
+  font-size: clamp(1.1rem, 3.1cqw, 2.2rem);
+  line-height: 1.2;
+  color: #6e1f28;
+}
+
+.venue-address {
+  margin-top: 0.25rem;
+  font-size: clamp(0.72rem, 1.9cqw, 1.15rem);
+  line-height: 1.5;
+  color: rgba(58, 36, 23, 0.8);
+}
+
+.schedule-grid {
+  margin-top: 0.8rem;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(0.35rem, 1.2cqw, 0.8rem);
+}
+
+.schedule-grid > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+}
+
+.schedule-time {
+  font-family: var(--font-serif), serif;
+  font-size: clamp(1rem, 3.1cqw, 2.2rem);
+  line-height: 1.1;
+  color: #6e1f28;
+}
+
+.schedule-label {
+  font-size: clamp(0.52rem, 1.7cqw, 1rem);
+  line-height: 1.3;
+  color: rgba(58, 36, 23, 0.8);
+}
+
+.dress-swatches {
+  margin-top: 0.9rem;
+  display: flex;
+  justify-content: center;
+  gap: clamp(0.5rem, 2.3cqw, 1rem);
+  flex-wrap: wrap;
+}
+
+.dress-swatch {
+  display: block;
+  width: clamp(1.5rem, 4.2cqw, 2.8rem);
+  height: clamp(1.5rem, 4.2cqw, 2.8rem);
+  border-radius: 0.35rem;
+  border: 1px solid rgba(110, 31, 40, 0.28);
+  box-shadow: 0 4px 12px rgba(77, 47, 29, 0.08);
+}
+
+.card-footer {
+  align-self: end;
+  font-size: clamp(0.62rem, 1.8cqw, 1.02rem);
+  line-height: 1.6;
+  color: rgba(58, 36, 23, 0.8);
+}
+
+.frame-overlay {
+  position: absolute !important;
+  inset: 0;
+  z-index: 20;
+  pointer-events: none;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain;
+}
+
+@media (max-width: 420px) {
+  .card-safe-area {
+    inset: 6% 14% 10% 14%;
+    grid-template-rows: 1.25fr 0.8fr 0.9fr 1.2fr 0.8fr 0.7fr;
+  }
+
+  .card-title {
+    letter-spacing: 0.01em;
+  }
+}
+
+/* ===== Wedding invitation animations ===== */
+
+@keyframes zodiac-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-zodiac-spin {
+  animation: zodiac-spin 60s linear infinite;
+}
+
+@keyframes hint-pulse {
+  0%,
+  100% {
+    opacity: 0.45;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-3px);
+  }
+}
+
+.animate-hint-pulse {
+  animation: hint-pulse 2.2s ease-in-out infinite;
+}
+
+/* Reveal-on-scroll */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-zodiac-spin,
+  .animate-hint-pulse {
+    animation: none;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
